@@ -49,20 +49,20 @@ class Bridge {
   push()
 
     for (let i = 0; i < vertices.length; i++) {
-      image(this.wood,vertices[i].x, vertices[i].y);
+      image(this.wood,vertices[i].x, vertices[i].y,80,50);
     }
    pop()
   }
 
-  showConstraints(constraints) {
+  /*showConstraints(constraints) {
     if (constraints != null) {
       for (let i = 0; i < constraints.length; i++) {
         this.drawConstraint(constraints[i]);
       }
     }
-  }
+  }*/
 
-  drawConstraint(constraint) {
+  /*drawConstraint(constraint) {
     if (constraint != null) {
       const offsetA = constraint.pointA;
       let posA = { x: 0, y: 0 };
@@ -85,5 +85,5 @@ class Bridge {
       );
       pop();
     }
-  }
+  }*/
 }

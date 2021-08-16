@@ -1,6 +1,6 @@
 class Base 
 {
-  constructor(x, y, w,h,color,isStatic) 
+  constructor(x, y, w,h,color) 
   {
     let options = {
      isStatic:true
@@ -19,7 +19,7 @@ class Base
     translate(pos.x,pos.y);
     rectMode(CENTER);
    
-    fill(this.color);
+    fill("brown");
     rect(0,0, this.w, this.h);
     pop();
   }

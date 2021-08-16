@@ -31,12 +31,16 @@ function setup() {
   world = engine.world;
   frameRate(80);
 
-  ground = new Base(0, height - 10, width * 2, 20, "#795548", true);
-  leftWall = new Base(250, height / 2.4 + 50,450, 100, "#8d6e63", true);
-  rightWall = new Base(width - 250, height / 2.4 + 50, 450, 100, "#8d6e63", true);
-  bridge = new Bridge(10, { x: 50, y: height / 4 -140});
-  jointPoint = new Base(width - 600, height / 2 + 10, 40, 20, "#8d6e63", true);
-  
+  ground = new Base(0, height - 10, width * 2, 20);
+  leftWall = new Base(100, height - 300, 200, height / 2 + 100);
+  rightWall = new Base(width - 100, height - 300, 200, height / 2 + 100);
+
+  bridge = new Bridge(30, { x: 50, y: height / 2 - 140 });
+  jointPoint = new Base(width - 250, height / 2 - 100, 40, 20);
+
+  Matter.Composite.add(bridge.body, jointPoint);
+  jointLink = new Link(bridge, jointPoint);
+
   Matter.Composite.add(bridge.body, jointPoint);
   jointLink = new Link(bridge, jointPoint);
 
@@ -48,7 +52,7 @@ function setup() {
   for (var i = 0; i <= 8; i++) {
     var x = random(width / 2 - 200, width / 2 + 300);
     var y = random(-10, 140);
-    var stone = new Stone(x, y, 45);
+    var stone = new Stone(x, y, 60,60);
     stones.push(stone);
   }
 }
@@ -58,10 +62,10 @@ function draw() {
 
   Engine.update(engine);
   
-  ground.show();
+  //ground.show();
   bridge.show();
-  leftWall.show();
-  rightWall.show();
+  //leftWall.show();
+  //rightWall.show();
 
   for (var stone of stones) {
     stone.show();
